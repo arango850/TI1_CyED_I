@@ -43,15 +43,15 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("Digite el nombre de la persona");
 		String nombre = scanner.nextLine();	
-		scanner.nextLine();
+		String nombre1 = scanner.nextLine();
 		System.out.println("Digite la edad de la persona");
 		String edad = scanner.nextLine();
 		System.out.println("Digite la enfermedad");
 		String enfermedad= scanner.nextLine();
-		persona = new Persona(0,nombre,edad,enfermedad);
+		persona = new Persona(0,nombre1,edad,enfermedad);
 		Queue<Persona> stack = new Queue(1);
 		stack.add(persona);
-		System.out.println(stack.peek());
+		System.out.println(stack.peek().getNombre());
 	}
 
 	private static void setMain(Main main) {
