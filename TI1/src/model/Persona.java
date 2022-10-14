@@ -8,6 +8,9 @@ public class Persona {
 	private String edad;
 	private String enfermedad;
 	
+	private Persona derecha;
+	private Persona izquierda;
+	
 	public Persona(int turno, String nombre, String edad, String enfermedad) {
 		super();
 		this.turno = turno;
@@ -50,6 +53,22 @@ public class Persona {
 
 	public void setEnfermedad(String enfermedad) {
 		this.enfermedad = enfermedad;
+	}
+
+	public Persona getDerecha() {
+		return derecha;
+	}
+
+	public void setDerecha(Persona derecha) {
+		this.derecha = derecha;
+	}
+
+	public Persona getIzquierda() {
+		return izquierda;
+	}
+
+	public void setIzquierda(Persona izquierda) {
+		this.izquierda = izquierda;
 	}
 	
 	

@@ -2,17 +2,18 @@ package main;
 
 import java.util.Scanner;
 
+import model.Laboratorio;
 import model.Persona;
 import structures.Queue;
 
 public class Main {
 
 	private static Scanner scanner;
-	private static Persona persona;
+	private static Laboratorio laboratorio;
 	
 	public Main() {
 		scanner = new Scanner(System.in);
-		persona = new Persona();
+		laboratorio = new Laboratorio();
 	}
 	
 	public static void main(String[] args) {
@@ -41,17 +42,51 @@ public class Main {
 
 	private static void continuee() {
 		// TODO Auto-generated method stub
-		System.out.println("Digite el nombre de la persona");
-		String nombre = scanner.nextLine();	
-		String nombre1 = scanner.nextLine();
-		System.out.println("Digite la edad de la persona");
+		System.out.println("¿Qué acción desea hacer?\n"+
+		"(1) Registrar una nuevo paciente\n"+
+		"(2) Eliminar un paciente\n"+
+		"(3) Buscar un paciente\n"+
+		"(0) Salir\n");
+		int option = scanner.nextInt();
+		switch(option) {
+		case 1:
+			agregarPaciente();
+		break;
+		case 2: 
+			eliminarPaciente();
+		break;
+		case 3:
+			buscarPaciente();
+		break;
+		case 0:
+			menu();
+		break;	
+		}
+	}
+
+	private static void buscarPaciente() {
+		// TODO Auto-generated method stub
+		System.out.println("Opccion buscar");
+		continuee();
+	}
+
+	private static void eliminarPaciente() {
+		// TODO Auto-generated method stub
+		System.out.println("Opccion eliminar");
+		continuee();
+	}
+
+	private static void agregarPaciente() {
+		// TODO Auto-generated method stub
+		System.out.println("Digite el nombre del paciente");
+		String nombre = scanner.nextLine();
+		System.out.println("Digite la edad del paciente");
 		String edad = scanner.nextLine();
-		System.out.println("Digite la enfermedad");
-		String enfermedad= scanner.nextLine();
-		persona = new Persona(0,nombre1,edad,enfermedad);
-		Queue<Persona> stack = new Queue(1);
-		stack.add(persona);
-		System.out.println(stack.peek().getNombre());
+		System.out.println("Digite la enfermedad del paciente");
+		String enfermedad = scanner.nextLine();
+		
+		laboratorio.agregarPaciente(nombre,edad,enfermedad);
+		continuee();
 	}
 
 	private static void setMain(Main main) {
