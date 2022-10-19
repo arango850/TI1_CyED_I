@@ -2,7 +2,7 @@ package model;
 
 public class Persona {
 
-	private int turno;
+	
 	
 	private String nombre;
 	private String edad;
@@ -11,9 +11,9 @@ public class Persona {
 	private Persona derecha;
 	private Persona izquierda;
 	
-	public Persona(int turno, String nombre, String edad, String enfermedad) {
+	public Persona( String nombre, String edad, String enfermedad) {
 		super();
-		this.turno = turno;
+		
 		this.nombre = nombre;
 		this.edad = edad;
 		this.enfermedad = enfermedad;
@@ -23,13 +23,9 @@ public class Persona {
 		
 	}
 
-	public int getTurno() {
-		return turno;
-	}
+	
 
-	public void setTurno(int turno) {
-		this.turno = turno;
-	}
+	
 
 	public String getNombre() {
 		return nombre;
@@ -70,6 +66,8 @@ public class Persona {
 	public void setIzquierda(Persona izquierda) {
 		this.izquierda = izquierda;
 	}
+
+	
 	
 	
 	

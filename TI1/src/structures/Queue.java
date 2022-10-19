@@ -10,6 +10,8 @@ public class Queue<T> implements IQueue<T> {
 	private int size;
 	private T queue[];
 	
+	
+	
 	public Queue(int size) {
 		this.size= size;
 		last=0;
@@ -58,7 +60,25 @@ public class Queue<T> implements IQueue<T> {
 	}
 	
 	
+	public String toString(){
+		String s = "[";
+
+		for(int i = 0; i < last; i++){
+			s += queue[i] + "|";
+		}
+
+		return s + "]";
+	}
 	
+	public int devolverTurno(String nombre) {
+		int pos =0;
+		for(int i =0 ; i<last;i++) {
+			if(queue[i].equals(nombre)) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
 	
 
 }
