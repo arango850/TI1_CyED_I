@@ -58,9 +58,19 @@ public class Laboratorio {
 	public void agregarPacienteCarga(String nombre, String edad, String enfermedad) {
 		// TODO Auto-generated method stub
 		persona = new Persona(nombre, edad, enfermedad);
-		queueP.add(persona);
+		System.out.println("_____________________");
+		System.out.println(nombre);
+		System.out.println(edad);
+		System.out.println(enfermedad);
+		System.out.println("________________");
+		System.out.println(persona.getNombre());
+		System.out.println(persona.getEdad());
+		System.out.println(persona.getEnfermedad());
+		queue.add(persona);
 		System.out.println(queue.toString());
 	}
+
+	
 		
 }
 	

@@ -75,10 +75,10 @@ public class Main {
 		String e1 = null;
 		while ((strng = obj.readLine())!=null) {
 			 e1 = strng;
-		}
+		}System.out.println(e1);
 		ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
-		for(int i = 0; i<division.size(); i+=3) {
-			laboratorio.agregarPacienteCarga(division.get(i), division.get(i+1), division.get(i+2));
+		for(int i = 0; i<division.size(); i+=3){
+			laboratorio.agregarPacienteCarga(division.get(i),division.get(i+1),division.get(i+2));
 		}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

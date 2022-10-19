@@ -70,15 +70,7 @@ public class Queue<T> implements IQueue<T> {
 		return s + "]";
 	}
 	
-	public int devolverTurno(String nombre) {
-		int pos =0;
-		for(int i =0 ; i<last;i++) {
-			if(queue[i].equals(nombre)) {
-				pos = i;
-			}
-		}
-		return pos;
-	}
+	
 	
 
 }
