@@ -32,8 +32,28 @@ public class Laboratorio {
 		// TODO Auto-generated method stub
 		persona = new Persona(nombre, edad, enfermedad,id);
 		queueP.add(persona);
+		crearBaseP(persona.getNombre(),persona.getEdad(),persona.getEnfermedad(),persona.getId());
+		System.out.println(queueP.toString());
 	}
 	
+	private void crearBaseP(String nombre, String edad, String enfermedad, String id) {
+		// TODO Auto-generated method stub
+		try {
+			File file = new File("src\\listP.txt");
+			String output = nombre + " "+ edad+ " "+ enfermedad+ " "+id+" ";
+			if(!file.getParentFile().exists()) {
+				file.getParentFile().mkdirs();
+				file.createNewFile();
+			}
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(output);
+			bw.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void crearBase(String nombre, String edad, String enfermadad,String id) {
 		try {
 		File file = new File("src\\test.txt");
@@ -58,16 +78,8 @@ public class Laboratorio {
 	public void agregarPacienteCarga(String nombre, String edad, String enfermedad,String id) {
 		// TODO Auto-generated method stub
 		persona = new Persona(nombre, edad, enfermedad,id);
-		System.out.println("_____________________");
-		System.out.println(nombre);
-		System.out.println(edad);
-		System.out.println(enfermedad);
-		System.out.println("________________");
-		System.out.println(persona.getNombre());
-		System.out.println(persona.getEdad());
-		System.out.println(persona.getEnfermedad());
 		queue.add(persona);
-		System.out.println(queue.toString());
+		
 	}
 
 	

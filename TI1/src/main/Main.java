@@ -58,12 +58,33 @@ public class Main {
 		switch(option1) {
 		case 1:
 			lecturaDatos();
+			lecturaDatosPrioritarios();
 			continuee();
 		break;
 		case 0:
 			continuee();
 		break;	
 		}
+	}
+
+	private static void lecturaDatosPrioritarios() {
+		// TODO Auto-generated method stub
+		try {
+			File doc = new File("src\\listP.txt");
+			BufferedReader obj = new BufferedReader(new FileReader(doc));
+			String strng;
+			String e1 = null;
+			while ((strng = obj.readLine())!=null) {
+				 e1 = strng;
+			}System.out.println(e1);
+			ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
+			for(int i = 0; i<division.size(); i+=4){
+				laboratorio.agregarPacienteCarga(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
+			}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	private static void lecturaDatos()  {
