@@ -79,7 +79,7 @@ public class Main {
 			}System.out.println(e1);
 			ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
 			for(int i = 0; i<division.size(); i+=4){
-				laboratorio.agregarPacienteCarga(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
+				laboratorio.agregarPacienteCargaP(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
 			}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -137,7 +137,9 @@ public class Main {
 
 	private static void buscarPaciente() {
 		// TODO Auto-generated method stub
-		System.out.println("Opccion buscar");
+		System.out.println("Digite el id del paciente buscado");
+		String busca = scanner.nextLine();
+		laboratorio.buscar(busca);
 		continuee();
 	}
 

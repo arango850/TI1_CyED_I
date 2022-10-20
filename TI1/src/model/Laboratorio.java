@@ -7,17 +7,19 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import structures.Queue;
+import structures.Stack;
 
 public class Laboratorio {
 
 	private Persona persona;
 	private Queue queue;
 	private Queue queueP;
-	
+	private Stack stack;
 	
 	public Laboratorio() {
 		queue = new Queue(100);
 		queueP = new Queue(100);
+		stack = new Stack(100);
 	}
 
 	public void agregarPaciente(String nombre, String edad, String enfermedad,String id) {
@@ -80,6 +82,19 @@ public class Laboratorio {
 		persona = new Persona(nombre, edad, enfermedad,id);
 		queue.add(persona);
 		
+	}
+
+	public void buscar(String busca) {
+		// TODO Auto-generated method stub
+		for(int i=0; i< queue.getSize(); i++) {
+			
+		}
+	}
+
+	public void agregarPacienteCargaP(String string, String string2, String string3, String string4) {
+		// TODO Auto-generated method stub
+		persona = new Persona(string, string2, string3,string4);
+		queueP.add(persona);
 	}
 
 	
