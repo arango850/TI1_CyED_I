@@ -20,24 +20,24 @@ public class Laboratorio {
 		queueP = new Queue(100);
 	}
 
-	public void agregarPaciente(String nombre, String edad, String enfermedad) {
+	public void agregarPaciente(String nombre, String edad, String enfermedad,String id) {
 		// TODO Auto-generated method stub
-			persona = new Persona(nombre, edad, enfermedad);
+			persona = new Persona(nombre, edad, enfermedad,id);
 			queue.add(persona);
-			crearBase(persona.getNombre(),persona.getEdad(),persona.getEnfermedad());
+			crearBase(persona.getNombre(),persona.getEdad(),persona.getEnfermedad(),persona.getId());
 			System.out.println(queue.toString());
 	}
 
-	public void agregarPacientePrioritario(String nombre, String edad, String enfermedad) {
+	public void agregarPacientePrioritario(String nombre, String edad, String enfermedad,String id) {
 		// TODO Auto-generated method stub
-		persona = new Persona(nombre, edad, enfermedad);
+		persona = new Persona(nombre, edad, enfermedad,id);
 		queueP.add(persona);
 	}
 	
-	public void crearBase(String nombre, String edad, String enfermadad) {
+	public void crearBase(String nombre, String edad, String enfermadad,String id) {
 		try {
 		File file = new File("src\\test.txt");
-		String output = nombre + " "+ edad+ " "+ enfermadad+ " ";
+		String output = nombre + " "+ edad+ " "+ enfermadad+ " "+id+" ";
 		
 		if(!file.getParentFile().exists()) {
 			file.getParentFile().mkdirs();
@@ -55,9 +55,9 @@ public class Laboratorio {
 		
 	}
 
-	public void agregarPacienteCarga(String nombre, String edad, String enfermedad) {
+	public void agregarPacienteCarga(String nombre, String edad, String enfermedad,String id) {
 		// TODO Auto-generated method stub
-		persona = new Persona(nombre, edad, enfermedad);
+		persona = new Persona(nombre, edad, enfermedad,id);
 		System.out.println("_____________________");
 		System.out.println(nombre);
 		System.out.println(edad);

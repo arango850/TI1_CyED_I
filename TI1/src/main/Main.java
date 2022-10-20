@@ -77,8 +77,8 @@ public class Main {
 			 e1 = strng;
 		}System.out.println(e1);
 		ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
-		for(int i = 0; i<division.size(); i+=3){
-			laboratorio.agregarPacienteCarga(division.get(i),division.get(i+1),division.get(i+2));
+		for(int i = 0; i<division.size(); i+=4){
+			laboratorio.agregarPacienteCarga(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
 		}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -134,16 +134,18 @@ public class Main {
 		String edad = scanner.nextLine();
 		System.out.println("Digite la enfermedad del paciente");
 		String enfermedad = scanner.nextLine();
+		System.out.println("Digite la identificación");
+		String id = scanner.nextLine();
 		int edadInt = Integer.parseInt(edad);
 		if(edadInt > 70) {
-			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad);
+			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad,id);
 			continuee();
 			System.out.println("El paciente fue ingresado como prioritario por la edad");
 		} else if(enfermedad.equalsIgnoreCase("Diabetes")|| enfermedad.equalsIgnoreCase("Cancer") || enfermedad.equalsIgnoreCase("Hipertensión") || enfermedad.equalsIgnoreCase("Asma")|| enfermedad.equalsIgnoreCase("EPOC")) {
-			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad);
+			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad,id);
 			continuee();
 		}else {
-			laboratorio.agregarPaciente(nombre, edad, enfermedad);
+			laboratorio.agregarPaciente(nombre, edad, enfermedad,id);
 			continuee();
 		}
 			

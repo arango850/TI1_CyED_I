@@ -7,16 +7,17 @@ public class Persona {
 	private String nombre;
 	private String edad;
 	private String enfermedad;
+	private String id;
 	
 	private Persona derecha;
 	private Persona izquierda;
 	
-	public Persona( String nombre, String edad, String enfermedad) {
+	public Persona( String nombre, String edad, String enfermedad,String id) {
 		super();
-		
 		this.nombre = nombre;
 		this.edad = edad;
 		this.enfermedad = enfermedad;
+		this.id=id;
 	}
 	
 	public Persona() {
@@ -65,6 +66,14 @@ public class Persona {
 
 	public void setIzquierda(Persona izquierda) {
 		this.izquierda = izquierda;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	
