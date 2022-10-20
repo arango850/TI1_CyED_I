@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+
 import structures.Queue;
 import structures.Stack;
 
@@ -15,11 +16,18 @@ public class Laboratorio {
 	private Queue queue;
 	private Queue queueP;
 	private Stack stack;
+	private Stack stack2;
+	
+	private Persona personaRaiz;
+	private int numPersonas;
+	
+	
 	
 	public Laboratorio() {
 		queue = new Queue(100);
 		queueP = new Queue(100);
 		stack = new Stack(100);
+		stack2=new Stack(100);
 	}
 
 	public void agregarPaciente(String nombre, String edad, String enfermedad,String id) {
@@ -84,17 +92,31 @@ public class Laboratorio {
 		
 	}
 
-	public void buscar(String busca) {
-		// TODO Auto-generated method stub
-		for(int i=0; i< queue.getSize(); i++) {
-			
-		}
-	}
+	
 
 	public void agregarPacienteCargaP(String string, String string2, String string3, String string4) {
 		// TODO Auto-generated method stub
 		persona = new Persona(string, string2, string3,string4);
 		queueP.add(persona);
+	}
+
+	public void agregarPacienteCargaB(String string, String string2, String string3, String string4) {
+		// TODO Auto-generated method stub
+		if(personaRaiz==null) {
+			personaRaiz= new Persona(string, string2, string3, string4);
+			numPersonas++;
+		}else {
+			personaRaiz.insert(string, string2, string3, string4);
+			numPersonas++;
+		}
+	}
+
+	public int getNumPersonas() {
+		return numPersonas;
+	}
+
+	public void setNumPersonas(int numPersonas) {
+		this.numPersonas = numPersonas;
 	}
 
 	

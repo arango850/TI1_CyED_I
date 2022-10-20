@@ -39,7 +39,7 @@ public class Main {
 		int option1 = Integer.parseInt(option);
 		switch(option1){
 		case 1:
-			menu2();
+			sestructura();
 		break;
 		case 0:
 			System.out.println("Goodbye");
@@ -48,6 +48,71 @@ public class Main {
 		}
 	}
 	
+	
+	
+	private static void sestructura() {
+		// TODO Auto-generated method stub
+		System.out.println("Seleccione el tipo de estructura a usar\n"+
+		"(1) Filas y Pilas\n"+
+		"(2) Arbol binario");
+		String option = scanner.nextLine();
+		int option1 = Integer.parseInt(option);
+		switch(option1) {
+		case 1:
+			menu2();
+		break;
+		case 2:
+			menu3();
+		break;	
+		}
+	}
+	
+	
+
+	private static void menu3() {
+		// TODO Auto-generated method stub
+		System.out.println("Desea agregar los datos registrados anteriormente\n"+
+				"(1) Sí\n"+
+				"(0) No");
+		String option = scanner.nextLine();
+		int option1 = Integer.parseInt(option);
+		switch(option1) {
+		case 1:
+			lecturaDatosB();
+			lecturaDatosPrioritariosB();
+			continuee();
+		break;
+		case 0:
+			continuee();
+		break;	
+		}
+	}
+	private static void lecturaDatosPrioritariosB() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void lecturaDatosB() {
+		// TODO Auto-generated method stub
+		try {
+			File doc = new File("src\\test.txt");
+			BufferedReader obj = new BufferedReader(new FileReader(doc));
+			String strng;
+			String e1 = null;
+			while ((strng = obj.readLine())!=null) {
+				 e1 = strng;
+			}System.out.println(e1);
+			ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
+			for(int i = 0; i<division.size(); i+=4){
+				laboratorio.agregarPacienteCargaB(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
+			}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+
 	private static void menu2() {
 		// TODO Auto-generated method stub
 		System.out.println("Desea agregar los datos registrados anteriormente\n"+
@@ -139,7 +204,6 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("Digite el id del paciente buscado");
 		String busca = scanner.nextLine();
-		laboratorio.buscar(busca);
 		continuee();
 	}
 
