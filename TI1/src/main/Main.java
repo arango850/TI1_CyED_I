@@ -116,9 +116,8 @@ public class Main {
 
 	private static void buscarPacienteB() {
 		// TODO Auto-generated method stub
-		System.out.println("Digita el id del programador");
+		System.out.println("Digita el id del paciente");
 		String name= scanner.nextLine();
-		scanner.nextLine();
 		persona = laboratorio.searchTrigger(name);
 		if(persona==null) {
 			System.out.println("El paciente no existe");
@@ -146,7 +145,7 @@ public class Main {
 		String nombre = scanner.nextLine();
 		System.out.println("Digite la edad del paciente");
 		String edad = scanner.nextLine();
-		System.out.println("Digite la enfermedad del paciente");
+		System.out.println("Digite la enfermedad del paciente, en caso de presentar una enfermedad de base, digite (No)");
 		String enfermedad = scanner.nextLine();
 		System.out.println("Digite la identificación");
 		String id = scanner.nextLine();
@@ -271,8 +270,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("¿Qué acción desea hacer?\n"+
 		"(1) Registrar una nuevo paciente\n"+
-		"(2) Eliminar un paciente\n"+
-		"(3) Buscar un paciente\n"+
+		"(2) Buscar un paciente\n"+
 		"(0) Salir");
 		String option = scanner.nextLine();
 		int option1  =Integer.parseInt(option);
@@ -280,10 +278,10 @@ public class Main {
 		case 1:
 			agregarPaciente();
 		break;
-		case 2: 
+		case 3: 
 			eliminarPaciente();
 		break;
-		case 3:
+		case 2:
 			buscarPaciente();
 		break;
 		case 0:
@@ -294,8 +292,43 @@ public class Main {
 
 	private static void buscarPaciente() {
 		// TODO Auto-generated method stub
+		System.out.println("¿El paciente fue ingresado como prioritario\n"+
+		"(1) Sí\n"+
+		"(0) No");
+		String option = scanner.nextLine();
+		int option1 = Integer.parseInt(option);
+		switch(option1) {
+		case 1:
+			buscarPrioritario();
+		break;
+		case 0:
+			buscarGeneral();
+		break;	
+		}
+		
+	}
+
+	private static void buscarGeneral() {
+		// TODO Auto-generated method stub
 		System.out.println("Digite el id del paciente buscado");
 		String busca = scanner.nextLine();
+		Persona per = laboratorio.buscar(busca);
+		System.out.println(per.getNombre());
+		System.out.println(per.getEdad());
+		System.out.println(per.getEnfermedad());
+		System.out.println(per.getId());
+		continuee();
+	}
+
+	private static void buscarPrioritario() {
+		// TODO Auto-generated method stub
+		System.out.println("Digite el id del paciente buscado");
+		String busca = scanner.nextLine();
+		Persona per = laboratorio.buscarP(busca);
+		System.out.println(per.getNombre());
+		System.out.println(per.getEdad());
+		System.out.println(per.getEnfermedad());
+		System.out.println(per.getId());
 		continuee();
 	}
 
@@ -311,20 +344,23 @@ public class Main {
 		String nombre = scanner.nextLine();
 		System.out.println("Digite la edad del paciente");
 		String edad = scanner.nextLine();
-		System.out.println("Digite la enfermedad del paciente");
+		System.out.println("Digite la enfermedad del paciente,en caso de presentar una enfermedad de base, digite (No)");
 		String enfermedad = scanner.nextLine();
 		System.out.println("Digite la identificación");
 		String id = scanner.nextLine();
 		int edadInt = Integer.parseInt(edad);
 		if(edadInt > 70) {
 			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad,id);
-			continuee();
 			System.out.println("El paciente fue ingresado como prioritario por la edad");
+			continuee();
+			
 		} else if(enfermedad.equalsIgnoreCase("Diabetes")|| enfermedad.equalsIgnoreCase("Cancer") || enfermedad.equalsIgnoreCase("Hipertensión") || enfermedad.equalsIgnoreCase("Asma")|| enfermedad.equalsIgnoreCase("EPOC")) {
 			laboratorio.agregarPacientePrioritario(nombre,edad,enfermedad,id);
+			System.out.println("El paciente fue ingresado como prioritario por la enfermedad de base que padece");
 			continuee();
 		}else {
 			laboratorio.agregarPaciente(nombre, edad, enfermedad,id);
+			System.out.println("El paciente fue ingresado como general");
 			continuee();
 		}
 			

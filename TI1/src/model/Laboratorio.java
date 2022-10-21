@@ -226,6 +226,42 @@ public class Laboratorio {
 		}
 	}
 	
+	public Persona buscar(String id) {
+		Persona aux = null;	
+		for(int i =0; i< queue.getSize(); i++) {
+				if(queue.peek().getId().equals(id)) {
+					aux = queue.peek();
+				}else{
+					if(queue.getLast()==0) {
+						break;
+					}else {
+						stack.push(queue.peek());
+						queue.pool();
+					}
+					
+				}	
+		}	
+	return aux;
+			}
+
+	public Persona buscarP(String busca) {
+		// TODO Auto-generated method stub
+		Persona aux = null;	
+		for(int i =0; i< queueP.getSize(); i++) {
+				if(queueP.peek().getId().equals(busca)) {
+					aux = queueP.peek();
+				}else{
+					if(queueP.getLast()==0) {
+						break;
+					}else {
+						stack.push(queueP.peek());
+						queueP.pool();
+					}
+					
+				}	
+		}	
+	return aux;
+	}
 		
 }
 	
