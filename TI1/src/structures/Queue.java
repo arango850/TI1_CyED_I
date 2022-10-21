@@ -78,5 +78,9 @@ public class Queue<T> implements IQueue<T> {
 		return last;
 	}
 	
+	public int size() {
+		return last;
+	}
+	
 
 }

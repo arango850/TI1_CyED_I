@@ -27,7 +27,7 @@ public class Laboratorio {
 		queue = new Queue(100);
 		queueP = new Queue(100);
 		stack = new Stack(100);
-		stack2=new Stack(100);
+		stack2= new Stack(100);
 	}
 
 	public void agregarPaciente(String nombre, String edad, String enfermedad,String id) {
@@ -264,9 +264,3 @@ public class Laboratorio {
 	}
 		
 }
-	
-	
-	
-	
-	
-
