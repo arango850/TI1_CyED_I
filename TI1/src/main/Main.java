@@ -17,10 +17,12 @@ public class Main {
 
 	private static Scanner scanner;
 	private static Laboratorio laboratorio;
+	private static Persona persona;
 	
 	public Main() {
 		scanner = new Scanner(System.in);
 		laboratorio = new Laboratorio();
+		persona = new Persona();
 	}
 	
 	public static void main(String[] args) {
@@ -87,6 +89,7 @@ public class Main {
 		break;	
 		}
 	}
+	
 	private static void continuee2() {
 		// TODO Auto-generated method stub
 		System.out.println("¿Qué acción desea hacer?\n"+
@@ -105,17 +108,36 @@ public class Main {
 				break;
 				case 3:
 					buscarPacienteB();
+				break;
+				case 0:
+					menu();
 				}
 	}
 
 	private static void buscarPacienteB() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Digita el id del programador");
+		String name= scanner.nextLine();
+		scanner.nextLine();
+		persona = laboratorio.searchTrigger(name);
+		if(persona==null) {
+			System.out.println("El paciente no existe");
+		}else {
+			System.out.println(persona.getNombre());
+			System.out.println(persona.getEdad());
+			System.out.println(persona.getEnfermedad());
+			System.out.println(persona.getId());
+		}
+		continuee2();
 	}
 
 	private static void eliminarPacienteB() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Digite el id");
+		String name= scanner.nextLine();
+		laboratorio.triggerDelete(name);
+		System.out.println("Ha sido eliminado");
+		continuee2();
 	}
 
 	private static void agregarPacienteB() {

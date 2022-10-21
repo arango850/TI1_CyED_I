@@ -157,6 +157,74 @@ public class Laboratorio {
 		}	
 	}
 
+	public Persona searchTrigger(String name) {
+		// TODO Auto-generated method stub
+		return search(personaRaiz, name);
+	}
+
+	private Persona search(Persona node, String name) {
+		// TODO Auto-generated method stub
+		if(node==null) {
+			return null;
+		}
+		if(name.equals(node.getId())) {
+			return node;
+			
+		}
+		
+		if(name.compareTo(node.getId())<0) {
+			return search(node.getIzquierda(), name);
+		}else {
+			return search(node.getDerecha(), name);
+		}
+	}
+
+	public void triggerDelete(String name) {
+		// TODO Auto-generated method stub
+		if (personaRaiz != null){
+			personaRaiz = delete(personaRaiz, name);
+		}
+	}
+
+	private Persona delete(Persona current, String name) {
+		// TODO Auto-generated method stub
+		if (current.getId().equals(name)){
+			if (current.getIzquierda() == null && 
+					current.getDerecha() == null){
+				return null;
+			} else if (current.getIzquierda() != null && 
+					current.getDerecha() != null) {
+				Persona succesor = getMin(current.getDerecha());
+				Persona newRightTree = delete(current.getDerecha(), succesor.getId());
+				
+				succesor.setIzquierda(current.getIzquierda());
+				succesor.setDerecha(newRightTree);
+				
+				return succesor;
+			} else if (current.getIzquierda() != null) {
+				return current.getIzquierda();
+			} else {
+				return current.getDerecha();
+			}
+			
+		} else if (name.compareTo(current.getId())<0){
+			Persona newLeftTree = delete(current.getIzquierda(), name);
+			current.setIzquierda(newLeftTree);
+		} else {
+			Persona newRightTree = delete(current.getDerecha(), name);
+			current.setDerecha(newRightTree);
+		}
+		
+		return current;
+	}
+
+	public Persona getMin(Persona current){
+		if (current.getIzquierda() == null) {
+			return current;
+		} else {
+			return getMin(current.getIzquierda());
+		}
+	}
 	
 		
 }
