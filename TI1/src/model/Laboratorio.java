@@ -120,6 +120,43 @@ public class Laboratorio {
 		this.numPersonas = numPersonas;
 	}
 
+	public void agregarPacienteCargaBP(String string, String string2, String string3, String string4) {
+		// TODO Auto-generated method stub
+		if(personaRaiz==null) {
+			personaRaiz= new Persona(string, string2, string3, string4);
+			numPersonas++;
+		}else {
+			personaRaiz.insert(string, string2, string3, string4);
+			numPersonas++;
+		}
+	}
+
+	public void agregarPacientePrioritarioB(String nombre, String edad, String enfermedad, String id) {
+		// TODO Auto-generated method stub
+		if(personaRaiz==null) {
+			personaRaiz= new Persona(nombre, edad, enfermedad, id);
+			numPersonas++;
+			crearBaseP(nombre, edad, enfermedad, id);
+		}else {
+			personaRaiz.insert(nombre, edad, enfermedad, id);
+			numPersonas++;
+			crearBaseP(nombre, edad, enfermedad, id);
+		}
+	}
+
+	public void agregarPacienteB(String nombre, String edad, String enfermedad, String id) {
+		// TODO Auto-generated method stub
+		if(personaRaiz==null) {
+			personaRaiz= new Persona(nombre, edad, enfermedad, id);
+			numPersonas++;
+			crearBase(nombre, edad, enfermedad, id);
+		}else {
+			personaRaiz.insert(nombre, edad, enfermedad, id);
+			numPersonas++;
+			crearBase(nombre, edad, enfermedad, id);
+		}	
+	}
+
 	
 		
 }

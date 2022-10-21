@@ -80,16 +80,86 @@ public class Main {
 		case 1:
 			lecturaDatosB();
 			lecturaDatosPrioritariosB();
-			continuee();
+			continuee2();
 		break;
 		case 0:
-			continuee();
+			continuee2();
 		break;	
 		}
 	}
-	private static void lecturaDatosPrioritariosB() {
+	private static void continuee2() {
+		// TODO Auto-generated method stub
+		System.out.println("¿Qué acción desea hacer?\n"+
+				"(1) Registrar una nuevo paciente\n"+
+				"(2) Eliminar un paciente\n"+
+				"(3) Buscar un paciente\n"+
+				"(0) Salir");
+				String option = scanner.nextLine();
+				int option1  =Integer.parseInt(option);
+				switch(option1) {
+				case 1:
+					agregarPacienteB();
+				break;
+				case 2:
+					eliminarPacienteB();
+				break;
+				case 3:
+					buscarPacienteB();
+				}
+	}
+
+	private static void buscarPacienteB() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	private static void eliminarPacienteB() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void agregarPacienteB() {
+		// TODO Auto-generated method stub
+		System.out.println("Digite el nombre del paciente");
+		String nombre = scanner.nextLine();
+		System.out.println("Digite la edad del paciente");
+		String edad = scanner.nextLine();
+		System.out.println("Digite la enfermedad del paciente");
+		String enfermedad = scanner.nextLine();
+		System.out.println("Digite la identificación");
+		String id = scanner.nextLine();
+		int edadInt = Integer.parseInt(edad);
+		if(edadInt > 70) {
+			laboratorio.agregarPacientePrioritarioB(nombre,edad,enfermedad,id);
+			continuee2();
+			System.out.println("El paciente fue ingresado como prioritario por la edad");
+		} else if(enfermedad.equalsIgnoreCase("Diabetes")|| enfermedad.equalsIgnoreCase("Cancer") || enfermedad.equalsIgnoreCase("Hipertensión") || enfermedad.equalsIgnoreCase("Asma")|| enfermedad.equalsIgnoreCase("EPOC")) {
+			laboratorio.agregarPacientePrioritarioB(nombre,edad,enfermedad,id);
+			continuee2();
+		}else {
+			laboratorio.agregarPacienteB(nombre, edad, enfermedad,id);
+			continuee2();
+		}
+	}
+
+	private static void lecturaDatosPrioritariosB() {
+		// TODO Auto-generated method stub
+		try {
+			File doc = new File("src\\\\listP.txt");
+			BufferedReader obj = new BufferedReader(new FileReader(doc));
+			String strng;
+			String e1 = null;
+			while ((strng = obj.readLine())!=null) {
+				 e1 = strng;
+			}System.out.println(e1);
+			ArrayList<String> division = new ArrayList<String>(Arrays.asList(e1.split(" ")));
+			for(int i = 0; i<division.size(); i+=4){
+				laboratorio.agregarPacienteCargaBP(division.get(i),division.get(i+1),division.get(i+2),division.get(i+3));
+			}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	private static void lecturaDatosB() {
