@@ -13,10 +13,10 @@ import structures.Stack;
 public class Laboratorio {
 
 	private Persona persona;
-	private Queue queue;
-	private Queue queueP;
-	private Stack stack;
-	private Stack stack2;
+	private Queue<Persona> queue;
+	private Queue<Persona> queueP;
+	private Stack<Persona> stack;
+	private Stack<Persona> stack2;
 	
 	private Persona personaRaiz;
 	private int numPersonas;
@@ -98,6 +98,7 @@ public class Laboratorio {
 		// TODO Auto-generated method stub
 		persona = new Persona(string, string2, string3,string4);
 		queueP.add(persona);
+		
 	}
 
 	public void agregarPacienteCargaB(String string, String string2, String string3, String string4) {
